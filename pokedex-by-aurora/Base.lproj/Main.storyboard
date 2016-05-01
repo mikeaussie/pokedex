@@ -5,6 +5,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="PokemonSolid.ttf">
+            <string>PokemonSolidNormal</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -19,10 +24,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pFS-9C-V5d">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokedex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ug-4b-D6s">
+                                        <rect key="frame" x="227" y="21" width="146" height="39"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="146" id="TVX-bT-Ook"/>
+                                            <constraint firstAttribute="height" constant="39" id="y27-mw-5G5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kb0-qR-LzJ">
+                                        <rect key="frame" x="557" y="17" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="aBE-bx-QP0"/>
+                                            <constraint firstAttribute="width" constant="35" id="afa-Hj-GmS"/>
+                                        </constraints>
+                                        <state key="normal" image="mute"/>
+                                        <connections>
+                                            <action selector="musicBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e1D-Lr-PbP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="1" green="0.34509803921568627" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="VTf-LV-nQC"/>
+                                    <constraint firstItem="7ug-4b-D6s" firstAttribute="centerY" secondItem="pFS-9C-V5d" secondAttribute="centerY" constant="10" id="MbC-qN-UbQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Kb0-qR-LzJ" secondAttribute="bottom" constant="8" id="PBQ-fv-MkD"/>
+                                    <constraint firstAttribute="height" constant="60" id="VTf-LV-nQC"/>
+                                    <constraint firstItem="7ug-4b-D6s" firstAttribute="centerX" secondItem="pFS-9C-V5d" secondAttribute="centerX" id="ay5-b1-bha"/>
+                                    <constraint firstAttribute="trailing" secondItem="Kb0-qR-LzJ" secondAttribute="trailing" constant="8" id="w97-dx-bUc"/>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="ZBI-qH-ZAI">
@@ -113,11 +145,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="340" y="389"/>
+            <point key="canvasLocation" x="333" y="367"/>
         </scene>
     </scenes>
     <resources>
         <image name="297" width="120" height="120"/>
         <image name="bg" width="960" height="600"/>
+        <image name="mute" width="1000" height="1000"/>
     </resources>
 </document>

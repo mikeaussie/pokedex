@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import AVFoundation
+
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var collection: UICollectionView!
     
     var pokemon = [Pokemon]()
+    var musicPlayer: AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,10 +23,28 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collection.delegate = self
         collection.dataSource = self
         
+        initAudio()
         parsePokemonCsv()
         
     }
 
+    func initAudio() {
+        
+        let path = NSBundle.mainBundle().pathForResource("music", ofType: "mp3")! //excl sign is important; otherwise the music player throughs an error
+        
+        do { //the player not always works, it may through an error
+            
+            musicPlayer = try AVAudioPlayer(contentsOfURL: NSURL(string: path)!)
+            musicPlayer.prepareToPlay()
+            musicPlayer.numberOfLoops = -1 //infinite loop
+            musicPlayer.play()
+        } catch let err as NSError {
+            print(err.debugDescription)
+            
+        }
+        
+    }
+    
     func parsePokemonCsv() {
         let path = NSBundle.mainBundle().pathForResource("pokemon", ofType: "csv")!
         
@@ -32,11 +53,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             let rows = csv.rows
 
             for row in rows {
-                let pokeId = Int(row["id"]!)! 
+                let pokeId = Int(row["id"]!)!
                 let name = row["identifier"]!
                 let poke = Pokemon(name: name, pokedexId: pokeId)
                 pokemon.append(poke)
-                
             }
             
         } catch let err as NSError {
@@ -54,19 +74,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PokieCell", forIndexPath: indexPath) as? PokieCell {
             
             let poke = pokemon[indexPath.row]
-                            //     let pokemon = Pokemon(name: "test", pokedexId: indexPath.row)
             cell.configureCell(poke)
             
             return cell
         } else {
             return UICollectionViewCell()
         }
-        
-        
+    
     }
     
     
-
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
     }
@@ -79,6 +96,18 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         return CGSizeMake(105, 105)
         
+    }
+    
+    @IBAction func musicBtnPressed(sender: UIButton!) {
+        
+        if musicPlayer.playing {
+            musicPlayer.stop()
+            sender.alpha = 0.2
+        } else {
+            musicPlayer.play()
+            sender.alpha = 1.0
+            
+        }
     }
     
     
