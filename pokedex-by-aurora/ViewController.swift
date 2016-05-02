@@ -108,7 +108,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         let poke: Pokemon!
         
-        if inSearchMode == true {
+        if inSearchMode == false {
             poke = pokemon[indexPath.row]
             
         } else {
