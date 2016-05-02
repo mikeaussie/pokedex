@@ -60,7 +60,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="ZBI-qH-ZAI">
                                 <rect key="frame" x="0.0" y="100" width="600" height="500"/>
                             </imageView>
-                            <searchBar contentMode="redraw" ambiguous="YES" misplaced="YES" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="hAn-k2-zdN">
+                            <searchBar contentMode="redraw" ambiguous="YES" misplaced="YES" searchBarStyle="minimal" placeholder="Search for Pokemon" translatesAutoresizingMaskIntoConstraints="NO" id="hAn-k2-zdN">
                                 <rect key="frame" x="0.0" y="56" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -141,11 +141,46 @@
                     </view>
                     <connections>
                         <outlet property="collection" destination="yNp-JI-ge5" id="TXH-vk-Ri3"/>
+                        <outlet property="searchBar" destination="hAn-k2-zdN" id="Otx-I6-b0I"/>
+                        <segue destination="SF0-gB-0II" kind="show" identifier="PokemonDetailVC" id="RsZ-gw-Q18"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="333" y="367"/>
+            <point key="canvasLocation" x="103" y="306"/>
+        </scene>
+        <!--Pokemon DetailVC-->
+        <scene sceneID="FgO-ce-VEy">
+            <objects>
+                <viewController id="SF0-gB-0II" customClass="PokemonDetailVC" customModule="pokedex_by_aurora" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="65E-zf-wCk"/>
+                        <viewControllerLayoutGuide type="bottom" id="7Vf-rY-67K"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="S9m-wK-j5A">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRd-j3-gDf">
+                                <rect key="frame" x="249" y="268" width="102" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.40649420320000001" green="0.64037507199999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="mRd-j3-gDf" firstAttribute="centerX" secondItem="S9m-wK-j5A" secondAttribute="centerX" id="P4v-Ry-rv7"/>
+                            <constraint firstItem="mRd-j3-gDf" firstAttribute="centerY" secondItem="S9m-wK-j5A" secondAttribute="centerY" id="y2y-Db-pZp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pokemonLbl" destination="mRd-j3-gDf" id="n40-kA-3ZT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="swb-j2-Lwl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="819" y="306"/>
         </scene>
     </scenes>
     <resources>
