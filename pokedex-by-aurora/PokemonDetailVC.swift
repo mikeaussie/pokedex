@@ -11,27 +11,16 @@ import UIKit
 class PokemonDetailVC: UIViewController {
 
     @IBOutlet weak var pokemonLbl: UILabel!
-    
-    @IBOutlet weak var mainImg: UIStackView!
-    
-    @IBOutlet weak var descriptionLbl: UIStackView!
-    
-    @IBOutlet weak var typeLbl: UIStackView!
-    
-    @IBOutlet weak var defenceLbl: UIStackView!
-    
-    @IBOutlet weak var heightLbl: UIStackView!
-    
-    @IBOutlet weak var weightLbl: UIStackView!
-    
-    @IBOutlet weak var pokedexIdLbl: UIStackView!
-    
-    @IBOutlet weak var baseAttackLbl: UIStackView!
-    
+    @IBOutlet weak var mainImg: UIImageView!
+    @IBOutlet weak var descriptionLbl: UILabel!
+    @IBOutlet weak var typeLbl: UILabel!
+    @IBOutlet weak var defenceLbl: UILabel!
+    @IBOutlet weak var heightLbl: UILabel!
+    @IBOutlet weak var weightLbl: UILabel!
+    @IBOutlet weak var pokedexIdLbl: UILabel!
+    @IBOutlet weak var baseAttackLbl: UILabel!
     @IBOutlet weak var currentEvoImg: UIImageView!
-    
     @IBOutlet weak var nextEvoImg: UIImageView!
-    
     @IBOutlet weak var evoLbl: UILabel!
     
     
@@ -41,7 +30,13 @@ class PokemonDetailVC: UIViewController {
         super.viewDidLoad()
 
         pokemonLbl.text = pokemon.name.capitalizedString
+        mainImg.image = UIImage(named: "\(pokemon.pokedexId)")
         
+        pokemon.downloadPokemonDetails {
+            //this will be called, after the download is done
+            
+            
+        }
         
     }
 
