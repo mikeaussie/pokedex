@@ -1,0 +1,6 @@
+framework module Pods_pokedex_by_aurora {
+  umbrella header "Pods-pokedex-by-aurora-umbrella.h"
+
+  export *
+  module * { export * }
+}

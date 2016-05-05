@@ -31,8 +31,13 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "46"
             endingLineNumber = "46"
+<<<<<<< HEAD
             landmarkName = "Pokemon"
             landmarkType = "3">
+=======
+            landmarkName = "downloadPokemonDetails(_:)"
+            landmarkType = "5">
+>>>>>>> afterSegue
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
