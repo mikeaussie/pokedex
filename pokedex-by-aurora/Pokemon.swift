@@ -16,17 +16,56 @@ class Pokemon {
     private var _pokedexId: Int!
     private var _description: String!
     private var _type: String!
-    private var _defence: String! //
-    private var _height: String! //
-    private var _weight: String! //
-    private var _attack: String! //
+    private var _defence: String! 
+    private var _height: String!
+    private var _weight: String!
+    private var _attack: String!
     private var _nextEvolutionTxt: String!
     private var _nextEvolutionId: String!
     private var _nextEvolutionLvl: String!
     
     private var _pokemonUrl: String!
     
-
+    var pokemonUrl: String {
+        return _pokemonUrl
+    }
+    
+    var nextEvolutionLvl: String {
+        return _nextEvolutionLvl
+    }
+    
+    var nextEvolutionId: String {
+        return _nextEvolutionId
+    }
+    
+    var nextEvolutionTxt: String {
+        return _nextEvolutionTxt
+    }
+    
+    var attack: String {
+        return _attack
+    }
+    
+    var weight: String {
+        return _weight
+    }
+    
+    var height: String {
+        return _height
+    }
+    
+    var defence: String {
+        return _defence
+    }
+    
+    var type: String {
+        return _type
+    }
+    
+    var description: String {
+        return _description
+    }
+    
     var name: String {
         return _name
     }
