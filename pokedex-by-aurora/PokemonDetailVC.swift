@@ -34,7 +34,7 @@ class PokemonDetailVC: UIViewController {
         
         pokemon.downloadPokemonDetails {
             //this will be called, after the download is done
-            
+            print("DID WE GET THERE")
             
         }
         
